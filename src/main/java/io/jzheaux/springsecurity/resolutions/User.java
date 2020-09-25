@@ -14,13 +14,13 @@ public class User implements Serializable {
     UUID id;
 
     @Column
-    private String username;
+    String username;
 
     @Column
-    private String password;
+    String password;
 
     @Column
-    private boolean enabled = true;
+    boolean enabled = true;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     Collection<UserAuthority> userAuthorities = new ArrayList<>();
@@ -32,6 +32,14 @@ public class User implements Serializable {
         this.id = UUID.randomUUID();
         this.username = username;
         this.password = password;
+    }
+
+    protected User(User user) {
+        this.id = user.id;
+        this.username = user.username;
+        this.password = user.password;
+        this.enabled = user.enabled;
+        this.userAuthorities = user.userAuthorities;
     }
 
     public UUID getId() {
