@@ -56,6 +56,7 @@ public class ResolutionsApplication extends WebSecurityConfigurerAdapter {
                 //.csrf().disable()
                 .authorizeRequests(this::customizeAuthorities)
                 .httpBasic(Customizer.withDefaults())
+                .oauth2ResourceServer(oauth2 -> oauth2.jwt())
                 .cors(Customizer.withDefaults());
     }
 
