@@ -22,30 +22,28 @@ public class ResolutionInitializer implements SmartInitializingSingleton {
         this.resolutions.save(new Resolution("Hang Christmas Lights", "user"));
 
         User admin = new User("admin", "{bcrypt}$2a$10$MywQEqdZFNIYnx.Ro/VQ0ulanQAl34B5xVjK2I/SDZNVGS5tHQ08W");
-        admin.setFullName("Jonn Admin-Doe");
+        admin.setFullName("Admin Adminson");
         admin.grantAuthority("ROLE_ADMIN");
         this.users.save(admin);
 
         User user = new User("user", "{bcrypt}$2a$10$MywQEqdZFNIYnx.Ro/VQ0ulanQAl34B5xVjK2I/SDZNVGS5tHQ08W");
-        user.setFullName("Jonn User-Doe");
+        user.setFullName("User Userson");
         user.grantAuthority("resolution:read");
         user.grantAuthority("resolution:write");
+        user.grantAuthority("user:read");
         this.users.save(user);
 
         User hasread = new User("hasread", "{bcrypt}$2a$10$MywQEqdZFNIYnx.Ro/VQ0ulanQAl34B5xVjK2I/SDZNVGS5tHQ08W");
-        hasread.setFullName("Jonn Read-Doe");
+        hasread.setFullName("Has Read");
         hasread.grantAuthority("resolution:read");
+        hasread.grantAuthority("user:read");
         this.users.save(hasread);
 
         User haswrite = new User("haswrite", "{bcrypt}$2a$10$MywQEqdZFNIYnx.Ro/VQ0ulanQAl34B5xVjK2I/SDZNVGS5tHQ08W");
-        hasread.setFullName("Jonn Write-Doe");
+        hasread.setFullName("Has Write");
         haswrite.grantAuthority("resolution:write");
+        haswrite.grantAuthority("user:read");
         this.users.save(haswrite);
-
-        User micpel92 = new User("micpel92", "{bcrypt}$2a$10$MywQEqdZFNIYnx.Ro/VQ0ulanQAl34B5xVjK2I/SDZNVGS5tHQ08W");
-        micpel92.setFullName("Michal Pelc");
-        micpel92.grantAuthority("resolution:read");
-        micpel92.grantAuthority("resolution:write");
-        this.users.save(micpel92);
+        
     }
 }
